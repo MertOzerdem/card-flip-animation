@@ -1,18 +1,5 @@
 body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: #111;
-    padding: 0;
-    margin: 0;
-}
-
-h1 {
-    position: absolute;
-    color: #fff;
-    top: 10px
 }
 
 img {
@@ -20,38 +7,44 @@ img {
     height: 400px;
 }
 
-.card {
-    position: relative;
+.content-wrapper {
+    position: absolute;
     width: 300px;
     height: 400px;
-    transform-style: preserve-3d;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.card .face {
+.card {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 0.6s ease-in-out;
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.face {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.8s wase-in-out;
+    border-radius: 10px;
     backface-visibility: hidden;
-    transition: 0.8s ease-in-out;
-    transform: perspective(400px) rotateY(0deg);
+    overflow: hidden;
+    background: #111;
 }
 
-.card:hover .face.back {
-    transform: perspective(400px) rotateY(180deg);
-}
-
-.card .face.front {
-    color: #fff;
-    transform: perspective(400px) rotateY(180deg);
-}
-
-.card:hover .face.front {
-    transform: perspective(400px) rotateY(360deg);
+.front {
+    overflow: hidden;
+    transform: rotateY(180deg);
 }
